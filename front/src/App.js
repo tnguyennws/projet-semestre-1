@@ -1,11 +1,11 @@
-import Navbar from "./components/Navbar";
+import "./styles/index.scss";
+import { CustomRouter } from "./components/CustomRouter";
 
 function App() {
 
   return (
     <div>
-      <Navbar/>
-      Hello world
+      <CustomRouter/>
     </div>
   );
 }

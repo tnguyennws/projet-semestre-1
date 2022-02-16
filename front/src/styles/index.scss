@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-y: hidden;
+}
+
+.page-index {
+    background-image: url('../../public/images/background.png');
+    background-size: cover;
+    height: 
+    100vh;
+}
+
+.page-creation {
+    background-image: url('../../public/images/background2.png');
+    background-size: cover;
+    height: 100vh;
+}
+
+.page-game {
+    background-image: url('../../public/images/background3.png');
+    background-size: cover;
+    height: 100vh;
+}
