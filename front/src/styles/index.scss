@@ -1,18 +1,18 @@
 @font-face {
-    font-family: Manga;
-    src: url('../fonts/Manga.otf') format("opentype");
+  font-family: Manga;
+  src: url("../fonts/Manga.otf") format("opentype");
 }
 
 @font-face {
-    font-family: MangaItalic;
-    font-style: italic;
-    src: url('../fonts/Manga Italic.otf') format("opentype");
+  font-family: MangaItalic;
+  font-style: italic;
+  src: url("../fonts/Manga Italic.otf") format("opentype");
 }
 
 @font-face {
-    font-family: MangaBold;
-    font-weight: bold ;
-    src: url('../fonts/Manga Bold.otf') format("opentype");
+  font-family: MangaBold;
+  font-weight: bold;
+  src: url("../fonts/Manga Bold.otf") format("opentype");
 }
 
 * {
@@ -23,6 +23,15 @@
 
 html {
   overflow-y: hidden;
+}
+
+a {
+    color:black;
+    text-decoration: none;
+
+    button{
+        color:black;
+    }
 }
 
 .page-index {
@@ -45,30 +54,46 @@ html {
 }
 
 .selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  flex: 1;
+  font-family: "Manga", sans-serif;
+  font-size: 3em;
+  color: #ced0dc;
+
+  .button-question {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: larger;
-    flex: 1;
-    font-family: 'Manga', sans-serif;
-    font-size: 3em;
-    color:#ced0dc;
+    flex-direction: row;
+    color: #648767;
+    font-family: "Manga", sans-serif;
+    font-size: 0.4em;
+    text-decoration: none;
+  }
 
-    .button-question{
-        display: flex;
-        flex-direction: row;
-        color: #648767;
-        font-family: 'Manga', sans-serif;
-        font-size: 0.4em;
-        text-decoration: none;
-    }
-
-    .button-game{
-        display: flex;
-        flex-direction: row;
-        color: #648767;
-        font-family: 'Manga', sans-serif;
-        font-size: 0.4em;
-    }
+  .button-game {
+    display: flex;
+    flex-direction: row;
+    color: #648767;
+    font-family: "Manga", sans-serif;
+    font-size: 0.4em;
+  }
 }
+
+.button-home-game {
+  display: flex;
+  flex-direction: row;
+  color: #873954 !important;
+  font-family: "Manga", sans-serif !important;
+  font-size: 0.4em;
+}
+
+.button-home-question {
+    display: flex;
+    flex-direction: row;
+    color: #efb9a1 !important;
+    font-family: "Manga", sans-serif !important;
+    font-size: 0.4em;
+  }
