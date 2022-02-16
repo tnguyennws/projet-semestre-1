@@ -1,28 +1,74 @@
+@font-face {
+    font-family: Manga;
+    src: url('../fonts/Manga.otf') format("opentype");
+}
+
+@font-face {
+    font-family: MangaItalic;
+    font-style: italic;
+    src: url('../fonts/Manga Italic.otf') format("opentype");
+}
+
+@font-face {
+    font-family: MangaBold;
+    font-weight: bold ;
+    src: url('../fonts/Manga Bold.otf') format("opentype");
+}
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 html {
-    overflow-y: hidden;
+  overflow-y: hidden;
 }
 
 .page-index {
-    background-image: url('../../public/images/background.png');
-    background-size: cover;
-    height: 
-    100vh;
+  background-image: url("../../public/images/background.png");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
 }
 
 .page-creation {
-    background-image: url('../../public/images/background2.png');
-    background-size: cover;
-    height: 100vh;
+  background-image: url("../../public/images/background2.png");
+  background-size: cover;
+  height: 100vh;
 }
 
 .page-game {
-    background-image: url('../../public/images/background3.png');
-    background-size: cover;
-    height: 100vh;
+  background-image: url("../../public/images/background3.png");
+  background-size: cover;
+  height: 100vh;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    flex: 1;
+    font-family: 'Manga', sans-serif;
+    font-size: 3em;
+    color:#ced0dc;
+
+    .button-question{
+        display: flex;
+        flex-direction: row;
+        color: #648767;
+        font-family: 'Manga', sans-serif;
+        font-size: 0.4em;
+        text-decoration: none;
+    }
+
+    .button-game{
+        display: flex;
+        flex-direction: row;
+        color: #648767;
+        font-family: 'Manga', sans-serif;
+        font-size: 0.4em;
+    }
 }
