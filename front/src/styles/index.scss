@@ -97,3 +97,25 @@ a {
     font-family: "Manga", sans-serif !important;
     font-size: 0.4em;
   }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    flex: 1;
+    font-family: "Manga", sans-serif;
+    font-size: 1em;
+    color: #efb9a1;
+    padding: 1em;
+
+    input{
+      padding: 1em;
+      margin-bottom: 8px;
+    }
+}
+
+.span{
+  font-family: "Manga", sans-serif;
+}
