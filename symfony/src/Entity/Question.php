@@ -13,19 +13,19 @@ class Question
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 1000)]
-    private $image;
+    private string $image;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $title;
+    private string $title;
 
     #[ORM\Column(type: 'array')]
-    private $answers = [];
+    private array $answers = [];
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $correctAnswer;
+    private string $correctAnswer;
 
     public function getId(): ?int
     {
