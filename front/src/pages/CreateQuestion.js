@@ -17,7 +17,8 @@ function CreateQuestion() {
 
   const onSubmit = async (data) => {
     data.image = imageUrl;
-    if(data.answers['answer0'] === data.correctAnswer || data.answers['answer1'] === data.correctAnswer || data.answers['answer2'] === data.correctAnswer || data.answers['answer3'] === data.correctAnswer ){
+    data.answers = Object.values(data.answers)
+    if(data.answers[0] === data.correctAnswer || data.answers[1] === data.correctAnswer || data.answers[2] === data.correctAnswer || data.answers[3] === data.correctAnswer ){
       
       await axios.post('http://127.0.0.1:8000/api/questions', data, {
         headers: {
