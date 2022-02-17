@@ -16,10 +16,10 @@ function CreateQuestion() {
   const [imageUrl, setImageUrl] = useState('')
 
   const onSubmit = async (data) => {
-
-    if(data.answers['answer0'] == data.correctAnswer || data.answers['answer1'] == data.correctAnswer || data.answers['answer2'] == data.correctAnswer || data.answers['answer3'] == data.correctAnswer ){
+    data.image = imageUrl;
+    if(data.answers['answer0'] === data.correctAnswer || data.answers['answer1'] === data.correctAnswer || data.answers['answer2'] === data.correctAnswer || data.answers['answer3'] === data.correctAnswer ){
       
-      const res = await axios.post('http://127.0.0.1:8000/api/questions', data, {
+      await axios.post('http://127.0.0.1:8000/api/questions', data, {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json'
@@ -38,9 +38,7 @@ function CreateQuestion() {
   const onFocus = async () => {
     return await axios.get(`https://api.trace.moe/search?url=${encodeURIComponent(imageUrl)}`)
       .then(v => {
-        console.log(v)
         setVideoFilePath(v.data.result[0].video)
-        console.log(v)
         videoCreateRef.current.classList.add('create-wrapper-js')
       });
   }
@@ -94,11 +92,9 @@ function CreateQuestion() {
           {errors.correctAnswer && <span>Veuillez remplir ce champ</span>}
 
           <input
-            {...register("image", { required: true })}
             placeholder="URL de l'image"
             onChange={(e) => setImageUrl(e.target.value)} onBlur={onFocus}
           />
-          {errors.image && <span>Veuillez remplir ce champ</span>}
 
           <input type="submit" />
         </form>
