@@ -2,6 +2,8 @@ import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
+import React, { useRef, useState } from "react"; 
+import ReactPlayer from "react-player";
 
 function CreateQuestion() {
   const {
@@ -10,30 +12,49 @@ function CreateQuestion() {
     formState: { errors },
   } = useForm();
 
+  const [videoFilePath, setVideoFilePath] = useState('');
+  const [imageUrl, setImageUrl] = useState('')
+
   const onSubmit = async (data) => {
 
     if(data.answers['answer0'] == data.correctAnswer || data.answers['answer1'] == data.correctAnswer || data.answers['answer2'] == data.correctAnswer || data.answers['answer3'] == data.correctAnswer ){
+      
       const res = await axios.post('http://127.0.0.1:8000/api/questions', data, {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json'
         }
       });
+
       window.alert("La question a été enregistrée !");
       document.getElementById("form").reset();
     }else{
       window.alert("La bonne réponse ne fait pas partie des propositions")
-      console.log(data.answers[3])
-      console.log(data.correctAnswer)
     }
   };
 
+  const videoCreateRef = useRef(null)
+
+  const onFocus = async () => {
+    return await axios.get(`https://api.trace.moe/search?url=${encodeURIComponent(imageUrl)}`)
+      .then(v => {
+        console.log(v)
+        setVideoFilePath(v.data.result[0].video)
+        console.log(v)
+        videoCreateRef.current.classList.add('create-wrapper-js')
+      });
+  }
+
+
   return (
-    <>
-      <div className="page-creation">
+    <div className="page-creation">
+      <div className="breadcrumb">
         <NavLink style={{ textDecoration: "none" }} component={Button} to="/">
           <Button className="button-home-question">Home</Button>
         </NavLink>
+      </div>
+
+      <div className="create-wrapper">
 
         <form id="form" className="form" onSubmit={handleSubmit(onSubmit)}>
           <input
@@ -75,13 +96,19 @@ function CreateQuestion() {
           <input
             {...register("image", { required: true })}
             placeholder="URL de l'image"
+            onChange={(e) => setImageUrl(e.target.value)} onBlur={onFocus}
           />
           {errors.image && <span>Veuillez remplir ce champ</span>}
 
           <input type="submit" />
         </form>
+
+       <div className="react-video-create" ref={videoCreateRef}>
+        <ReactPlayer url={videoFilePath} playing={true} muted={true} loop={true} controls={true} width={350} height={350} />
+       </div>
+
       </div>
-    </>
+    </div>
   );
 }
 

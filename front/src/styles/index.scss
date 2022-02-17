@@ -41,11 +41,6 @@ a {
   display: flex;
 }
 
-.page-creation {
-  background-image: url("../../public/images/background2.png");
-  background-size: cover;
-  height: 100vh;
-}
 
 .page-game {
   background-image: url("../../public/images/background3.png");
@@ -98,24 +93,44 @@ a {
     font-size: 0.4em;
   }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: larger;
-    flex: 1;
-    font-family: "Manga", sans-serif;
-    font-size: 1em;
-    color: #efb9a1;
-    padding: 1em;
-
-    input{
-      padding: 1em;
-      margin-bottom: 8px;
-    }
-}
-
 .span{
   font-family: "Manga", sans-serif;
+}
+
+.create-wrapper-js {
+  display: unset !important;
+}
+
+.react-video-create {
+  display: none;
+}
+
+.page-creation {
+  height: 100vh;
+  background-image: url('../../public/images/background2.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+.create-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .form {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin: 0.4rem 0;
+      padding: 0.625rem 1.250rem;
+      border: none;
+      border-radius: 6px;
+    }
+  }
+
+  .react-video-create {
+    order: 1;
+  }
 }
