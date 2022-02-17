@@ -12,14 +12,20 @@ function CreateQuestion() {
 
   const onSubmit = async (data) => {
 
-    const res = await axios.post('http://127.0.0.1:8000/api/questions', data, {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      }
-    });
-    window.alert("La question a été enregistrée !");
-    document.getElementById("form").reset();
+    if(data.answers['answer0'] == data.correctAnswer || data.answers['answer1'] == data.correctAnswer || data.answers['answer2'] == data.correctAnswer || data.answers['answer3'] == data.correctAnswer ){
+      const res = await axios.post('http://127.0.0.1:8000/api/questions', data, {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        }
+      });
+      window.alert("La question a été enregistrée !");
+      document.getElementById("form").reset();
+    }else{
+      window.alert("La bonne réponse ne fait pas partie des propositions")
+      console.log(data.answers[3])
+      console.log(data.correctAnswer)
+    }
   };
 
   return (
