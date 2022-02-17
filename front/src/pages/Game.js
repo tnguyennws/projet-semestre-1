@@ -20,6 +20,10 @@ import axios from 'axios'
     res()
   }, [])
 
+  function getVal() {
+  const val = document.querySelector('input').value;
+}
+
   return (
     <div className="page-game">
       <NavLink
@@ -32,9 +36,16 @@ import axios from 'axios'
         </Button>
       </NavLink>
 
+      <div style={{display: "flex", flexDirection:"column", justifyContent:"center", alignItems:'center'}}>
+        Combien de questions voulez-vous avoir ? (max {allData.data?.length})
+        <input type="integer" placeholder="Nombre de questions" onClick={getVal}/>
+      </div>
+
       <div>
+
         <DisplayQuestion data={allData.data}>
         </DisplayQuestion>
+        
       </div>
     </div>
   );

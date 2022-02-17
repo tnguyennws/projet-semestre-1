@@ -63,6 +63,11 @@ function CreateQuestion() {
           {errors.title && <span>Veuillez remplir ce champ</span>}
 
           <input
+            placeholder="URL de l'image"
+            onChange={(e) => setImageUrl(e.target.value)} onBlur={onFocus}
+          />
+
+          <input
             {...register("answers[answer0]", { required: true })}
             placeholder="Proposition 1"
           />
@@ -91,11 +96,6 @@ function CreateQuestion() {
             placeholder="Réponse"
           />
           {errors.correctAnswer && <span>Veuillez remplir ce champ</span>}
-
-          <input
-            placeholder="URL de l'image"
-            onChange={(e) => setImageUrl(e.target.value)} onBlur={onFocus}
-          />
 
           <input type="submit" />
         </form>

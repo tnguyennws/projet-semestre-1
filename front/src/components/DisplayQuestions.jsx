@@ -10,30 +10,42 @@ export function DisplayQuestion({ data }) {
   const onSubmit = (data) => {};
 
   return (
-    <div>
+    <div className='quiz-sheet'>
+
       {data?.map((i, idx) => (
         <div key={idx}>
           <h3>{i.title}</h3>
           <ul>
-            <li>{i.answers[0]}</li>
-            <li>{i.answers[1]}</li>
-            <li>{i.answers[2]}</li>
-            <li>{i.answers[3]}</li>
+            <form>
+              <li>
+                <label class="label"> 
+                  <input type="checkbox" value={i.answers[0]}/> {i.answers[0]} 
+                </label>
+              </li>
+              <li>
+                <label class="label"> 
+                  <input type="checkbox" value={i.answers[1]}/> {i.answers[1]} 
+                </label>
+              </li>
+              <li>
+                <label class="label"> 
+                  <input type="checkbox" value={i.answers[2]}/> {i.answers[2]} 
+                </label>
+              </li>
+              <li>
+                <label class="label"> 
+                  <input type="checkbox" value={i.answers[3]}/> {i.answers[3]} 
+                </label>
+              </li>
+              <li>
+                <button type="submit">Valider la réponse</button>
+              </li>
+            </form>
           </ul>
-          <p>{i.correctAnswer}</p>
-          <img src={i.image} alt="quizz" width="300" />
+          {/* <img src={i.image} alt="quizz" width="300" /> */}
+
         </div>
       ))}
-
-      <form id="form" className="form" onSubmit={handleSubmit(onSubmit)}>
-        <input
-          {...register("envoi", { required: true })}
-          placeholder="Réponse"
-        />
-        {errors.envoi && <span>Veuillez remplir ce champ</span>}
-
-        <input type="submit" />
-      </form>
     </div>
   );
 }
